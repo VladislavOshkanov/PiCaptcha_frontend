@@ -16,7 +16,8 @@ export function register_user(
     name,
     last_name,
     password,
-    email
+    email,
+    code
 ) {
     return {
         type: REGISTER,
@@ -24,7 +25,8 @@ export function register_user(
         name: name,
         last_name: last_name,
         password: password,
-        email: email
+        email: email,
+        code: code
     }
 }
 

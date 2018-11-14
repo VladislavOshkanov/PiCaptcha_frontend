@@ -13,6 +13,6 @@ const AppRouter = () => (
             <Route path = "/Registration" exact component={RegistrationContainer}/>
         </div>
     </Router>
-)
+);
 
 export default AppRouter;

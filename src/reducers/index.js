@@ -1,11 +1,11 @@
 import {userInitialState} from '../constants/initialState';
 import {REGISTER, GET_CODE, LOGIN} from "../actions";
 
-export const loginReducer = (state = userInitialState, action) => {
+export const registerReducer = (state = userInitialState, action) => {
     switch (action.type) {
         case REGISTER:
-            return Object.assign({}, state, {
-                username: action.username,
+            return Object.assign(state, {}, {
+                login: action.username,
                 name: action.name,
                 last_name: action.last_name,
                 password: action.password,
@@ -19,7 +19,7 @@ export const loginReducer = (state = userInitialState, action) => {
     }
 };
 
-export function registerReducer(state = userInitialState, action) {
+export function loginReducer(state = userInitialState, action) {
     switch(action.type) {
         case LOGIN:
             return Object.assign({}, state, {
