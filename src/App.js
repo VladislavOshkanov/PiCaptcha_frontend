@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { loginReducer, registerReducer } from './reducers/index';
+import { loginReducer, registerReducer, userReducer } from './reducers/index';
 import AppRouter from './AppRouter';
 import { combineReducers, createStore } from "redux"
 import { Provider } from 'react-redux'
 
 const rootReducer = combineReducers({
     login: loginReducer,
-    register: registerReducer
+    register: registerReducer,
+    user: userReducer,
 });
 
 const store = createStore(

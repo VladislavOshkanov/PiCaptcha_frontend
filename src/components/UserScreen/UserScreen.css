@@ -1,0 +1,15 @@
+h2 {
+    text-align: center
+}
+#container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    height: 150px;
+}

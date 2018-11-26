@@ -18,3 +18,9 @@ button {
   color: white;
   height: 40px;
 }
+
+.buttonsRow {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}

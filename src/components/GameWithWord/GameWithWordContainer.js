@@ -1,32 +1,32 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {Component} from 'react'
-import HomeScreen from './HomeScreen'
+import GameWithWord from './GameWithWord'
 import {login_user} from "../../actions";
 import {connect, Dispatch} from 'react-redux';
 
-class HomeScreenContainer extends Component {
+class GameWithWordContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            login: '',
-            password: '',
-            isLoggedIn: false,
+            selectedLevel: "easy"
         }
     }
     componentDidMount() {
         // this.props.history.push('/User')
 
     }
-    navigateToRegistration() {
-        this.props.history.push('/Registration')
+    handleRadioChange = (event)  => {
+        this.setState({
+            selectedLevel: event.target.value
+        })
     }
 
     render() {
         return (
-            <HomeScreen
-                navigateToRegistration = {this.navigateToRegistration.bind(this)}
-                {...this.props}
+            <GameWithWord
+                selectedLevel = {this.state.selectedLevel}
+                handleRadioChange = {this.handleRadioChange}
             />
         )
     }
@@ -34,19 +34,17 @@ class HomeScreenContainer extends Component {
 
 function mapStateToProps (state){
     return {
-        login: state.login,
-        password: state.password
+        user: state.user,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        onLoginClick: (login, password) =>
-            dispatch(login_user(login, password))
+      
     }
 }
 
 export default connect (
     mapStateToProps,
     mapDispatchToProps
-)(HomeScreenContainer);
+)(GameWithWordContainer);

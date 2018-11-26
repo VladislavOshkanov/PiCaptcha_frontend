@@ -1,5 +1,5 @@
 import {userInitialState} from '../constants/initialState';
-import {REGISTER, GET_CODE, LOGIN} from "../actions";
+import {REGISTER, GET_CODE, LOGIN, UPDATE_USER} from "../actions";
 
 export const registerReducer = (state = userInitialState, action) => {
     switch (action.type) {
@@ -18,6 +18,14 @@ export const registerReducer = (state = userInitialState, action) => {
             return state;
     }
 };
+export function userReducer(state = userInitialState, action) {
+    switch(action.type) {
+        case UPDATE_USER:
+            return action.user;
+        default:
+            return state;
+    }
+}
 
 export function loginReducer(state = userInitialState, action) {
     switch(action.type) {

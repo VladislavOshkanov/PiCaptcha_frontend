@@ -2,6 +2,7 @@
 export const LOGIN = 'LOGIN';
 export const REGISTER = 'REGISTER';
 export const GET_CODE = 'GET_CODE';
+export const UPDATE_USER = 'UPDATE_USER';
 
 export function login_user(login, password) {
     return {
