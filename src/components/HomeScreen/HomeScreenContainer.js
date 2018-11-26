@@ -2,7 +2,8 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {Component} from 'react'
 import HomeScreen from './HomeScreen'
-import { connect, Dispatch} from 'react-redux';
+import {login_user} from "../../actions";
+import {connect, Dispatch} from 'react-redux';
 
 class HomeScreenContainer extends Component {
     constructor(props) {
@@ -16,26 +17,32 @@ class HomeScreenContainer extends Component {
     navigateToRegistration() {
         this.props.history.push('/Registration')
     }
+
     render() {
         return (
             <HomeScreen
                 navigateToRegistration = {this.navigateToRegistration.bind(this)}
+                {...this.props}
             />
         )
     }
-
 }
 
-export function mapStateToProps ( state  ){
+function mapStateToProps (state){
     return {
-  
+        login: state.login,
+        password: state.password
     }
-  }
-  
-  export function mapDispatchToProps(dispatch) {
+}
+
+function mapDispatchToProps(dispatch) {
     return {
-  
+        onLoginClick: (login, password) =>
+            dispatch(login_user(login, password))
     }
-  }
-  
-  export default connect (mapStateToProps, mapDispatchToProps)(HomeScreenContainer);
+}
+
+export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeScreenContainer);

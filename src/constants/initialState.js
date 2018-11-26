@@ -1,4 +1,4 @@
 export const userInitialState = {
-    name: 'гость',
+    login: 'гость',
     id: 0,
-}
+};
