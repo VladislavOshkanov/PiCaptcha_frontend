@@ -18,14 +18,18 @@ class HomeScreenContainer extends Component {
         // this.props.history.push('/User')
 
     }
-    navigateToRegistration() {
+    navigateToRegistration = () =>  {
         this.props.history.push('/Registration')
+    }
+    navigateToGameSelection = () => {
+        this.props.history.push('/GameSelection')
     }
 
     render() {
         return (
             <HomeScreen
-                navigateToRegistration = {this.navigateToRegistration.bind(this)}
+                navigateToRegistration = {this.navigateToRegistration}
+                navigateToGameSelection = {this.navigateToGameSelection}
                 {...this.props}
             />
         )

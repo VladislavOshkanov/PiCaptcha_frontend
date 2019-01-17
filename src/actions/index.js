@@ -1,4 +1,4 @@
-
+import {register} from '../services/api';
 export const LOGIN = 'LOGIN';
 export const REGISTER = 'REGISTER';
 export const GET_CODE = 'GET_CODE';
@@ -20,6 +20,7 @@ export function register_user(
     email,
     code
 ) {
+    register(login, password);
     return {
         type: REGISTER,
         login: login,

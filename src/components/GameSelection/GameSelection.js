@@ -3,14 +3,14 @@ import { Component }  from 'react'
 import './GameSelection.css';
 
 
-const GameSelection = ({user}) => {
+const GameSelection = ({user, navigateToGameWithWord}) => {
     return(
         <div id='container'>
         <h2>Выберите режим игры</h2>
         <h2>Одиночная игра</h2>
         <div id='buttonsContainer'>
             <div className='buttonsRow'>
-                <button>Игра со словом</button>
+                <button onClick={() => navigateToGameWithWord()}>Игра со словом</button>
                 <button>Игра без слова</button>
             </div>
         </div>

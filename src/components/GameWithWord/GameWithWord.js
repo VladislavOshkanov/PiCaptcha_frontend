@@ -61,16 +61,20 @@ function GamePage(props) {
             <div className="static-modal">
                 <Modal.Dialog>
                     <Modal.Header>
-                        Игра со словом
+                        Draw {props.whatToDraw}. {props.remains} seconds remains.
                     </Modal.Header>
                     <Modal.Body>
                         {
-                            props.isSuccess ? <GameSuccessBody {...props}/> : <GameMainBody {...props}/>
+                            props.isSuccess ? 
+                                <GameSuccessBody {...props}/> :
+                                (props.isFailure) ?
+                                    <GameFailureBody {...props}/> :
+                                         <GameMainBody {...props}/>
                         }
                     </Modal.Body>
                     <Modal.Footer align="center">
                         {
-                            props.isSuccess ? <GameSuccessFooter {...props}/> : <GameMainFooter {...props}/>
+                            (props.isSuccess || props.isFailure) ? <GameSuccessFooter {...props}/> : <GameMainFooter {...props}/>
                         }
                     </Modal.Footer>
                 </Modal.Dialog>
@@ -79,13 +83,14 @@ function GamePage(props) {
 }
 
 function GameMainBody(props) {
-    return <LC.LiterallyCanvasReactComponent
-        tools={[LC.tools.Pencil, LC.tools.Eraser]}
-        strokeWidths={[5]}
-        backgroundColor="white"
-        toolbarPosition="hidden"
-        imageURLPrefix="./img"
-    />
+    // return <LC.LiterallyCanvasReactComponent
+    //     tools={[LC.tools.Pencil, LC.tools.Eraser]}
+    //     strokeWidths={[5]}
+    //     backgroundColor="white"
+    //     toolbarPosition="hidden"
+    //     imageURLPrefix="./img"
+    // />
+    return <div id="drawer"/>
 }
 
 function GameSuccessBody(props) {
@@ -95,14 +100,20 @@ function GameSuccessBody(props) {
     </span>
 }
 
+function GameFailureBody(props) {
+    return <span>
+        <h2 style={{display: "inline", margin: "5px"}}> Время вышло </h2>
+    </span>
+}
+
 function GameMainFooter(props) {
-    return <h3>Это яблоко...</h3>
+    return <h3>This is {props.thisIs}</h3>
 
 }
 
 function GameSuccessFooter(props) {
     return <div className="clearfix">
-        <button style={{float: "right"}}>Играть еще!</button>
+        <button onClick={props.onPlay} style={{float: "right"}}>Играть еще!</button>
     </div>
 }
 

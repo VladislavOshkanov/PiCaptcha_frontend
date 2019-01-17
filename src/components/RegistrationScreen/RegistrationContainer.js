@@ -1,6 +1,7 @@
 import React from "react";
 import RegistrationScreen from "./RegistrationScreen.js";
 import {register_user} from "../../actions";
+import {register} from "../../services/api"
 import connect from "react-redux/es/connect/connect";
 
 class RegistrationContainer extends React.Component {
@@ -15,16 +16,23 @@ class RegistrationContainer extends React.Component {
             code: ''
         }
     }
-
+    onRegisterClick = (login, password) => {
+        register(login, password).then(response => {
+            this.props.history.push('/GameSelection')
+        })
+    }
     render() {
         console.log(this.state);
-        return <RegistrationScreen {...this.props}/>
+        return <RegistrationScreen 
+            onRegisterClick = {this.onRegisterClick}
+        />
     }
 }
 
 function mapStateToProps(state) {
     return {};
 }
+
 
 function mapDispatchToProps(dispatch) {
     return {

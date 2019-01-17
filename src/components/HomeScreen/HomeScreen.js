@@ -47,7 +47,7 @@ class HomeScreen extends Component {
                     </div>
                     <div id='left'>
                         <h3>Вы можете играть без регистрации</h3>
-                        <button>Играть без регистрации</button>
+                        <button onClick= {() => this.props.navigateToGameSelection()}>Играть без регистрации</button>
                         <text>В этом случае у Вас не будет возможности добавлять друзей и просматривать статистику.
                         </text>
 

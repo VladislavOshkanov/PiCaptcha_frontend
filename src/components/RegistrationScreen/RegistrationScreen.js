@@ -20,38 +20,18 @@ export default class RegistrationScreen extends React.Component {
                 Зарегистрируйтесь в системе PiCaptcha
             </h1>
             <form id='registerForm'>
-                <label>
-                    Имя:
-                    <input type='text' name='name' onChange={(e) => this.setState({name: e.target.value})}/>
-                </label>
-                <label>
-                    Фамилия:
-                    <input type='text' name='last_name' onChange={(e) => this.setState({last_name: e.target.value})}/>
-                </label>
+            
                 <label>
                     Логин:
                     <input type='text' name='login' onChange={(e) => this.setState({login: e.target.value})}/>
                 </label>
-                <label>
-                    Email:
-                    <input type='email' name='email' onChange={(e) => this.setState({email: e.target.value})}/>
-                </label>
+               
                 <label>
                     Пароль:
                     <input type='password' name='password' onChange={(e) => this.setState({password: e.target.value})}/>
                 </label>
             </form>
-            <form id='registerCodeForm'>
-                <label id="registerCodeLabel">
-                    <button style={{margin: '5px'}}>Получить код</button>
-                    <input
-                        type="text"
-                        name="code"
-                        placeholder="Введите код"
-                        onChange={(e) => this.setState({code: e.target.value})}
-                    />
-                </label>
-            </form>
+            
             <div id='registerBottom'>
                 <div id="left">
                     <button onClick={(e) =>
