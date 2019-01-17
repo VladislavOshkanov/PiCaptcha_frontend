@@ -1,5 +1,5 @@
 
-const url = 'http://18.217.255.16:8080';
+const url = 'http://18.217.255.16:8080/api';
 
 
 export function getWord () {

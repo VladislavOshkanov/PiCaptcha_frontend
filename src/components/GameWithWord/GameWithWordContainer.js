@@ -14,7 +14,7 @@ class GameWithWordContainer extends Component {
         this.state = {
             selectedLevel: "easy",
             isPlaying: false,
-            thisIs: '...',
+            thisIs: '..',
             whatToDraw: '...',
             isSuccess: false,
             isFailure: false,
