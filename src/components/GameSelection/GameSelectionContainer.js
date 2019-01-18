@@ -19,11 +19,15 @@ class GameSelectionContainer extends Component {
     navigateToGameWithWord = () => {
         this.props.history.push('/GameWithWord')
     }
+    navigateToGameWithoutWord = () => {
+        this.props.history.push('/GameWithoutWord')
+    }
     render() {
         return (
             <GameSelection
                 user = {this.props.user}
                 navigateToGameWithWord = {this.navigateToGameWithWord}
+                navigateToGameWithoutWord = {this.navigateToGameWithoutWord}
             />
         )
     }

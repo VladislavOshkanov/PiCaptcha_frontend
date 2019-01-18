@@ -3,7 +3,7 @@ import { Component }  from 'react'
 import './GameSelection.css';
 
 
-const GameSelection = ({user, navigateToGameWithWord}) => {
+const GameSelection = ({user, navigateToGameWithWord, navigateToGameWithoutWord}) => {
     return(
         <div id='container'>
         <h2>Выберите режим игры</h2>
@@ -11,7 +11,7 @@ const GameSelection = ({user, navigateToGameWithWord}) => {
         <div id='buttonsContainer'>
             <div className='buttonsRow'>
                 <button onClick={() => navigateToGameWithWord()}>Игра со словом</button>
-                <button>Игра без слова</button>
+                <button onClick={() => navigateToGameWithoutWord()}>Игра без слова</button>
             </div>
         </div>
         <h2>Многопользовательская игра</h2>

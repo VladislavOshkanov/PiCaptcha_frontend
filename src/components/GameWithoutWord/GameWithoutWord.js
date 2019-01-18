@@ -4,11 +4,11 @@ import LC from "literallycanvas/lib/js";
 
 import "literallycanvas/lib/css/literallycanvas.css"
 
-import './GameWithWord.css';
+import './GameWithoutWord.css';
 
 const starImage = require("./icons8-star-filled-96.png");
 
-function GameWithWord(props) {
+function GameWithoutWord(props) {
     return props.isPlaying ? <GamePage {...props}/> : <LevelSelector {...props}/>;
 }
 
@@ -61,7 +61,7 @@ function GamePage(props) {
             <div className="static-modal">
                 <Modal.Dialog>
                     <Modal.Header>
-                        Нарисуй {props.whatToDraw}. {props.remains} секунд осталось.
+                        Нарисуй что-нибудь, а я угадаю😃
                     </Modal.Header>
                     <Modal.Body>
                         {
@@ -74,7 +74,7 @@ function GamePage(props) {
                     </Modal.Body>
                     <Modal.Footer align="center">
                         {
-                            (props.isSuccess || props.isFailure) ? <GameSuccessFooter {...props}/> : <GameMainFooter {...props}/>
+                            (props.checked) ? <GameSuccessFooter {...props}/> : <GameMainFooter {...props}/>
                         }
                     </Modal.Footer>
                 </Modal.Dialog>
@@ -83,20 +83,13 @@ function GamePage(props) {
 }
 
 function GameMainBody(props) {
-    // return <LC.LiterallyCanvasReactComponent
-    //     tools={[LC.tools.Pencil, LC.tools.Eraser]}
-    //     strokeWidths={[5]}
-    //     backgroundColor="white"
-    //     toolbarPosition="hidden"
-    //     imageURLPrefix="./img"
-    // />
     return <div id="drawer"/>
 }
 
 function GameSuccessBody(props) {
     return <span>
         <img src={starImage}/>
-        <h2 style={{display: "inline", margin: "5px"}}> Вы выйграли! :)</h2>
+        <h2 style={{display: "inline", margin: "5px"}}> Вы выиграли! :)</h2>
     </span>
 }
 
@@ -107,14 +100,20 @@ function GameFailureBody(props) {
 }
 
 function GameMainFooter(props) {
-    return <h3>Это {props.thisIs}</h3>
-
+    return <div style = {{display: 'inline'}}>
+        { (props.sentOnServer) && <span style ={{fontSize: '8pt'}}>Результат отправлен на сервер для обучения нейронной сети</span>}
+        <button style ={{marginLeft: '10px'}} onClick={props.onCheck}>Угадывай!</button>
+    </div>
 }
 
 function GameSuccessFooter(props) {
     return <div className="clearfix">
-        <button onClick={props.onPlay} style={{float: "right"}}>Играть еще!</button>
+    <div style = {{display: 'inline'}}>
+        <span style = {{fontSize: '18pt'}}>Это {props.thisIs}</span>
+        <button onClick={props.onConfirm} style ={{marginLeft: '10px'}}>Правильно!</button>
+        <button onClick={props.onDecline} style ={{marginLeft: '10px'}}>Не правильно:(</button>
+    </div>
     </div>
 }
 
-export default GameWithWord
+export default GameWithoutWord

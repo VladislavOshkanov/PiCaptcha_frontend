@@ -4,6 +4,7 @@ import RegistrationContainer from "./components/RegistrationScreen/RegistrationC
 import UserScreenContainer from "./components/UserScreen/UserScreenContainer.js"
 import GameSelectionContainer from "./components/GameSelection/GameSelectionContainer";
 import GameWithWordContainer from "./components/GameWithWord/GameWithWordContainer";
+import GameWithoutWordContainer from "./components/GameWithoutWord/GameWithoutWordContainer";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
@@ -18,6 +19,8 @@ const AppRouter = () => (
             <Route path = "/User" exact component={UserScreenContainer}/>
             <Route path = "/GameSelection" exact component = {GameSelectionContainer}/>
             <Route path = "/GameWithWord" exact component = {GameWithWordContainer}/>
+            <Route path = "/GameWithoutWord" exact component = {GameWithoutWordContainer}/>
+
         </div>
     </Router>
 );
