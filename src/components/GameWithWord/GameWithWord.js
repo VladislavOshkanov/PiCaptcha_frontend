@@ -96,7 +96,7 @@ function GameMainBody(props) {
 function GameSuccessBody(props) {
     return <span>
         <img src={starImage}/>
-        <h2 style={{display: "inline", margin: "5px"}}> Вы выйграли! :)</h2>
+        <h2 style={{display: "inline", margin: "5px"}}> Вы выиграли! :)</h2>
     </span>
 }
 
