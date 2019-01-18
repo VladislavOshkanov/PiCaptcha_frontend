@@ -37,10 +37,7 @@ export default class RegistrationScreen extends React.Component {
                     <button onClick={(e) =>
                         this.props.onRegisterClick(
                             this.state.login,
-                            this.state.name,
-                            this.state.last_name,
                             this.state.password,
-                            this.state.code
                         )
                     }>
                         Зарегистрироваться

@@ -4,6 +4,7 @@ import {Component} from 'react'
 import HomeScreen from './HomeScreen'
 import {login_user} from "../../actions";
 import {connect, Dispatch} from 'react-redux';
+import {login} from '../../services/api';
 
 class HomeScreenContainer extends Component {
     constructor(props) {
@@ -24,12 +25,34 @@ class HomeScreenContainer extends Component {
     navigateToGameSelection = () => {
         this.props.history.push('/GameSelection')
     }
-
+    handleLoginChange = (login) => {
+        this.setState({login: login});
+    }
+    onLoginClick = () => {
+        console.log('login clicked')
+        login(this.state.login, this.state.password).then(text => {
+            if (text.substr(0, 1) == 'L'){
+                console.log("EQUAL")
+                this.props.history.push('/User');
+            } else {
+                alert('Логин или пароль неверный')
+            }
+            
+        })
+    }
+    handlePasswordChange = (password) => {
+        console.log(password);
+        this.setState({password: password});
+    }
+    
     render() {
         return (
             <HomeScreen
+                onLoginClick = {this.onLoginClick}
                 navigateToRegistration = {this.navigateToRegistration}
                 navigateToGameSelection = {this.navigateToGameSelection}
+                handleLoginChange = {this.handleLoginChange}
+                handlePasswordChange = {this.handlePasswordChange}
                 {...this.props}
             />
         )
@@ -45,8 +68,7 @@ function mapStateToProps (state){
 
 function mapDispatchToProps(dispatch) {
     return {
-        onLoginClick: (login, password) =>
-            dispatch(login_user(login, password))
+   
     }
 }
 

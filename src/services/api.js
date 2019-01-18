@@ -10,6 +10,17 @@ export function getWord () {
         .then(response => response.text())
 }
 
+export function login(username, password) {
+    console.log(username, password)
+    let formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
+    return fetch ('http://18.217.255.16:8080/login', {
+        method: 'POST',
+        body: formData,
+    }).then(response => response.text());
+}
+
 export function getPictureClass(pictureBase64) {
     let headers = new Headers;
     headers.append("Content-Type", "application/json");
@@ -41,7 +52,7 @@ export function register (login, password) {
     let headers = new Headers;
     headers.append("Content-Type", "application/json");
     console.log(login, password);
-    return fetch(url + "/user/register", 
+    return fetch(url + "/user", 
     {
         method: "POST",
         headers: headers,

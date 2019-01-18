@@ -36,9 +36,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onRegisterClick:
-            (login, name, last_name, password, email, code) =>
-                dispatch(register_user(login, name, last_name, password, email, code))
+        // onRegisterClick:
+        //     (login, name, last_name, password, email, code) =>
+        //         dispatch(register_user(login, name, last_name, password, email, code))
     };
 
 }
